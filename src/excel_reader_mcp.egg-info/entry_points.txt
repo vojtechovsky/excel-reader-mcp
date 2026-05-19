@@ -1,0 +1,2 @@
+[console_scripts]
+excel-reader-mcp = excel_reader_mcp.server:main

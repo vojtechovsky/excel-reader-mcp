@@ -1,0 +1,34 @@
+# excel-reader-mcp
+
+Stdio MCP server for reading `.xlsx` files (openpyxl).
+
+## Install
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -e .
+```
+
+Or from a Git URL (after you publish the repo):
+
+```bash
+pip install "git+https://example.com/yourorg/excel-reader-mcp.git"
+```
+
+## Cursor `mcp.json`
+
+```json
+"excel-reader": {
+  "command": "excel-reader-mcp",
+  "args": []
+}
+```
+
+If the executable is not on `PATH`, use the full path to `.venv\\Scripts\\excel-reader-mcp.exe` (Windows) or `.venv/bin/excel-reader-mcp` (Unix).
+
+## Tools
+
+- `read_excel` — all sheets as `sheets`: `{ sheetName: rows[][] }`
+- `read_excel_by_sheet_name` — one sheet (optional `sheet_name`, default first sheet)
+- `read_excel_by_sheet_index` — one sheet by index (optional `sheet_index`, default `0`)

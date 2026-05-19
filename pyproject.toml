@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "excel-reader-mcp"
+version = "0.1.0"
+description = "MCP stdio server: read Excel (.xlsx) via openpyxl"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.4.0",
+    "openpyxl>=3.1.0",
+]
+
+[project.scripts]
+excel-reader-mcp = "excel_reader_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
