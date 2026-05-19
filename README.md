@@ -13,19 +13,43 @@ pip install -e .
 Or from a Git URL (after you publish the repo):
 
 ```bash
-pip install "git+https://example.com/yourorg/excel-reader-mcp.git"
+pip install "git+https://github.com/vojtechovsky/excel-reader-mcp.git"
 ```
 
 ## Cursor `mcp.json`
 
-```json
-"excel-reader": {
-  "command": "excel-reader-mcp",
-  "args": []
-}
+The goal is for Cursor to run the same Python / virtual environment where you installed the package — ideally using the full path to `excel-reader-mcp.exe`.
+
+1. Find the executable path  
+In the same environment where you ran `pip install`:
+
+```powershell
+where.exe excel-reader-mcp
 ```
 
-If the executable is not on `PATH`, use the full path to `.venv\\Scripts\\excel-reader-mcp.exe` (Windows) or `.venv/bin/excel-reader-mcp` (Unix).
+The executable is in the `Scripts` folder, e.g.:  
+`...\\Python312\\Scripts\\excel-reader-mcp.exe`
+
+2. Add the server in Cursor  
+
+Option A: Settings → MCP → add server / Edit config  
+
+
+```json
+{
+  "mcpServers": {
+    "excel-reader": {
+      "command": "C:/Users/username/AppData/Local/Programs/Python/Python312/Scripts/excel-reader-mcp.exe",
+      "args": []
+    }
+  }
+}
+```
+Full path is recommended.
+
+3. Reload  
+Refresh/reload MCP or restart Cursor to apply changes.
+
 
 ## Tools
 
